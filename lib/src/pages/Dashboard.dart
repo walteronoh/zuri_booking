@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:zuri_booking/src/utils/BackgroundWaveClipper.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -66,47 +67,52 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget _topContent() {
-    return Container(
-        height: MediaQuery.of(context).size.height * 0.25,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50))),
-        child: Column(
-          children: [
-            Expanded(
-                child: Align(
-                    alignment: FractionalOffset.bottomLeft,
-                    child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        child: Padding(
-                            padding: const EdgeInsets.only(left: 20, bottom: 6),
-                            child: Column(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Book Your",
-                                    style: GoogleFonts.aBeeZee(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 30,
-                                    )),
-                                Text(
-                                  "Ride",
-                                  style: GoogleFonts.aBeeZee(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 30),
-                                )
-                              ],
-                            )))))
-          ],
-        ));
+    return ClipPath(
+      clipper: BackgroundWaveClipper(),
+        child: Container(
+            height: MediaQuery.of(context).size.height * 0.15, // 0.25
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              // borderRadius:
+              //     BorderRadius.only(bottomLeft: Radius.circular(50))
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                    child: Align(
+                        alignment: FractionalOffset.bottomLeft,
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: MediaQuery.of(context).size.height * 0.13,
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, bottom: 6),
+                                child: Column(
+                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Book Your",
+                                        style: GoogleFonts.aBeeZee(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 30,
+                                        )),
+                                    Text(
+                                      "Ride",
+                                      style: GoogleFonts.aBeeZee(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 30),
+                                    )
+                                  ],
+                                )))))
+              ],
+            )));
   }
 
   Widget _centerContent() {
     return Container(
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.7, // 0.75
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(8.0),
         decoration: const BoxDecoration(

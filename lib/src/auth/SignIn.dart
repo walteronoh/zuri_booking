@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zuri_booking/src/navbar/NavBar.dart';
 import 'package:zuri_booking/src/pages/Dashboard.dart';
 
 class SignIn extends StatefulWidget {
@@ -65,10 +66,10 @@ class _SignInState extends State<SignIn> {
                   child: TextButton(
                     onPressed: () async {
                       Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) =>
-                                      const Dashboard())));
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) =>
+                                  const NavBar(widget: Dashboard()))));
                     },
                     style: ButtonStyle(
                         foregroundColor:
