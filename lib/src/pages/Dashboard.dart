@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:zuri_booking/src/navbar/NavBar.dart';
+import 'package:zuri_booking/src/pages/Booking.dart';
 import 'package:zuri_booking/src/utils/BackgroundWaveClipper.dart';
 
 class Dashboard extends StatefulWidget {
@@ -68,7 +70,7 @@ class _DashboardState extends State<Dashboard> {
 
   Widget _topContent() {
     return ClipPath(
-      clipper: BackgroundWaveClipper(),
+        clipper: BackgroundWaveClipper(),
         child: Container(
             height: MediaQuery.of(context).size.height * 0.15, // 0.25
             width: MediaQuery.of(context).size.width,
@@ -237,7 +239,13 @@ class _DashboardState extends State<Dashboard> {
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.blue.shade400),
                       child: TextButton(
-                        onPressed: () async {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) =>
+                                      const NavBar(widget: Booking()))));
+                        },
                         style: ButtonStyle(
                             foregroundColor:
                                 MaterialStateProperty.all(Colors.white)),

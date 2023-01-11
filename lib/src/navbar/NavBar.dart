@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zuri_booking/src/auth/SignIn.dart';
+import 'package:zuri_booking/src/pages/Dashboard.dart';
+import 'package:zuri_booking/src/pages/MyRides.dart';
+import 'package:zuri_booking/src/pages/Profile.dart';
 
 class NavBar extends StatefulWidget {
   final Widget widget;
@@ -19,7 +22,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         actions: const [
           Padding(
             padding: EdgeInsets.only(top: 20, right: 10),
@@ -45,17 +48,33 @@ class _NavBarState extends State<NavBar> {
             ),
             ListTile(
               leading: Icon(
+                Icons.home,
+                color: Colors.blue.shade900,
+                size: 30,
+              ),
+              title: const Text("Home"),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            const NavBar(widget: Dashboard()))))
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: Icon(
                 Icons.directions_bus,
                 color: Colors.blue.shade900,
                 size: 30,
               ),
               title: const Text("My Rides"),
               onTap: () => {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: ((context) =>
-                //             const NavBar(widget: Dashboard()))))
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            const NavBar(widget: MyRides()))))
               },
             ),
             const Divider(),
@@ -67,11 +86,11 @@ class _NavBarState extends State<NavBar> {
               ),
               title: const Text("Profile"),
               onTap: () => {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: ((context) =>
-                //             const NavBar(widget: Contractors()))))
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            const NavBar(widget: Profile()))))
               },
             ),
             const Divider(),
